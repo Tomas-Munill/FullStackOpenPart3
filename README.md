@@ -69,3 +69,29 @@ Este ejercicio se puede completar de diferentes formas. Una de las posibles solu
 
 - creando nuevos tokens
 - JSON.stringify
+
+### Paso 9
+
+Haga que el backend funcione con el frontend de la parte anterior. No implemente todavía la funcionalidad para realizar cambios en los números de teléfono, que se implementará en el ejercicio 3.17.
+
+Probablemente tendrá que hacer algunos pequeños cambios en el frontend, al menos en las URL del backend. Recuerde mantener abierta la consola del desarrollador en su navegador. Si algunas solicitudes HTTP fallan, debe verificar en la pestaña Network qué está sucediendo. Vigile también la consola del backend. Si no hiciste el ejercicio anterior, vale la pena imprimir los datos de la solicitud o request.body en la consola en el manejador de eventos responsable de las solicitudes POST.
+
+### Paso 10
+
+Implemente el backend en Internet, por ejemplo en Heroku.
+
+Pruebe el backend implementado con un navegador y un cliente REST de Postman o VS Code para asegurarse de que funcione.
+
+PRO TIP: Cuando implementes tu aplicación en Heroku, vale la pena al menos al principio estar atento a los logs de la aplicación heroku EN TODO MOMENTO con el comando heroku logs -t.
+
+El siguiente es un log sobre un problema típico. Heroku no puede encontrar la dependencia de la aplicación express:
+
+![log de problema típico en heroku](/images/paso10a.png)
+
+La razón es que el paquete express no se ha instalado con el comando npm install express, por lo que la información sobre la dependencia no se guardó en el archivo package.json.
+
+Otro problema típico es que la aplicación no está configurada para usar el puerto configurado para la variable de entorno PORT:
+
+![log de problema típico en heroku](/images/paso10b.png)
+
+Cree un README.md en la raíz de su repositorio y agregue un enlace a su aplicación en línea.
