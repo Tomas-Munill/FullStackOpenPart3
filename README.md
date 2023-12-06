@@ -46,3 +46,26 @@ Responda a solicitudes como estas con el código de estado apropiado y también 
 ```javascript
  { error: 'name must be unique' } 
 ```
+
+### Paso 7
+
+Agregue el middleware morgan a su aplicación para el registro de mensajes. Configúrelo para registrar mensajes en su consola según la configuración tiny.
+
+La documentación de Morgan no es la mejor y es posible que deba dedicar algún tiempo a averiguar cómo configurarla correctamente. Sin embargo, la mayor parte de la documentación del mundo cae en la misma categoría, por lo que es bueno aprender a descifrar e interpretar documentación críptica en cualquier caso.
+
+Morgan se instala como todas las demás bibliotecas con el comando npm install. La puesta en funcionamiento de Morgan ocurre de la misma manera que la configuración de cualquier otro middleware mediante el comando app.use.
+
+### Paso 8 
+
+Configure morgan para que también muestre los datos enviados en las solicitudes HTTP POST:
+
+![ejemplo de log](/images/paso8.png)
+
+Tenga en cuenta que el registro de datos incluso en la consola puede ser peligroso, ya que puede contener datos confidenciales y puede violar la ley de privacidad local (por ejemplo, GDPR en la UE) o el estándar comercial. En este ejercicio, no tiene que preocuparse por los problemas de privacidad, pero en la práctica, intente no registrar ningún dato sensible.
+
+Este ejercicio puede resultar bastante complicado, aunque la solución no requiere mucho código.
+
+Este ejercicio se puede completar de diferentes formas. Una de las posibles soluciones utiliza estas dos técnicas:
+
+- creando nuevos tokens
+- JSON.stringify
