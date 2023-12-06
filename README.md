@@ -2,6 +2,8 @@
 
 ## Backend de la agenda telefónica
 
+https://fullstackopenbackendphonebook.onrender.com
+
 ### Paso 1
 Implemente una aplicación Node que devuelva una lista hardcodeada de entradas de la agenda   telefónica desde la dirección http://localhost:3001/api/persons.
 
@@ -95,3 +97,11 @@ Otro problema típico es que la aplicación no está configurada para usar el pu
 ![log de problema típico en heroku](/images/paso10b.png)
 
 Cree un README.md en la raíz de su repositorio y agregue un enlace a su aplicación en línea.
+
+### Paso 11
+
+Genere una compilación de producción de su frontend y agréguela a la aplicación de Internet utilizando el método presentado en esta parte.
+
+NB Asegúrese de que el directorio de build no esté ignorada en gitignore
+
+También asegúrese de que el frontend todavía funcione localmente.
