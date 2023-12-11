@@ -177,3 +177,39 @@ Verifique que el frontend funcione después de realizar sus cambios.
 También actualice el manejo de las rutas api/persons/:id e info para usar la base de datos, y verifique que funcionen directamente con el navegador, Postman o el cliente REST de VS Code.
 
 La inspección de una entrada individual de la agenda telefónica desde el navegador debería verse así:
+
+### 3.19: Base de datos de la agenda telefónica, paso 7
+
+Agregue validación a su aplicación de agenda telefónica, que se asegurará de que una persona recién agregada tenga un nombre único. Nuestro frontend actual no permitirá a los usuarios intentar crear duplicados, pero podemos intentar crearlos directamente con Postman o el cliente REST de VS Code.
+
+Mongoose no ofrece un validador integrado para este propósito. Instale el paquete mongoose-unique-validator con npm y utilícelo en su lugar.
+
+Si una solicitud HTTP POST intenta agregar un nombre que ya está en la agenda, el servidor debe responder con un código de estado apropiado y un mensaje de error.
+
+### 3.20 Base de datos de la agenda, paso 8
+
+Expanda la validación para que el nombre almacenado en la base de datos tenga al menos tres caracteres y el número de teléfono tenga al menos 8 dígitos.
+
+Expanda el frontend para que muestre algún tipo de mensaje de error cuando se produzca un error de validación. El manejo de errores se puede implementar agregando un bloque catch como se muestra a continuación:
+
+```js
+personService
+    .create({ ... })
+    .then(createdPerson => {
+      // ...
+    })
+    .catch(error => {
+      // this is the way to access the error message
+      console.log(error.response.data)
+    })
+```
+
+Puede mostrar el mensaje de error predeterminado devuelto por Mongoose, aunque no sean tan legibles como podrían ser.
+
+NB: En las operaciones de actualización, los validadores de mongoose están desactivados de forma predeterminada. Lea la documentación para determinar cómo habilitarlos
+
+### 3.21 Implementación del backend de la base de datos en producción
+
+Genere una nueva versión "full stack" de la aplicación creando una nueva compilación de producción del frontend y cópiela en el repositorio backend. Verifique que todo funcione localmente usando la aplicación completa desde la dirección https://localhost:3001.
+
+Envíe la última versión a Heroku y verifique que todo funcione allí también.
