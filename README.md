@@ -105,3 +105,75 @@ Genere una compilación de producción de su frontend y agréguela a la aplicaci
 NB Asegúrese de que el directorio de build no esté ignorada en gitignore
 
 También asegúrese de que el frontend todavía funcione localmente.
+
+### Ejercicio 3.12
+
+Cree una base de datos MongoDB basada en la nube para la aplicación de agenda con MongoDB Atlas.
+
+Cree un archivo mongo.js en el directorio del proyecto, que se puede usar para agregar entradas a la agenda y para enumerar todas las entradas existentes en la agenda.
+
+NB: ¡No incluya la contraseña en el archivo que hace commit confirma y sube a GitHub!
+
+La aplicación debería funcionar de la siguiente manera. Utiliza el programa pasando tres argumentos de línea de comando (el primero es la contraseña), por ejemplo:
+
+```Shell
+node mongo.js yourpassword Anna 040-1234556
+```
+
+Como resultado, la aplicación imprimirá:
+
+```Shell
+node mongo.js yourpassword "Arto Vihavainen" 045-1232456
+```
+
+Si la contraseña es el único parámetro dado al programa, lo que significa que se invoca así:
+
+```Shell
+node mongo.js yourpassword
+```
+
+Entonces el programa debería mostrar todas las entradas en la agenda:
+
+```Shell
+Entonces el programa debería mostrar todas las entradas en la agenda:
+```
+
+Puede obtener los parámetros de la línea de comandos de la variable process.argv.
+
+### Ej 3.13 Base de datos de la agenda telefónica, paso 1
+
+Cambie la búsqueda de todas las entradas de la agenda telefónica para que los datos se obtengan de la base de datos.
+
+Verifique que el frontend funcione después de que se hayan realizado los cambios.
+
+En los siguientes ejercicios, escriba todo el código específico de Mongoose en su propio módulo, como hicimos en el capítulo Configuración de la base de datos en su propio módulo.
+
+### Ej 3.14 Base de datos de la agenda telefónica, paso 2
+
+Cambie el backend para que los nuevos números se guarden en la base de datos. Verifique que su frontend aún funcione después de los cambios.
+
+En este punto, puede optar por permitir que los usuarios creen todas las entradas de la agenda. En esta etapa, la agenda puede tener varias entradas para una persona con el mismo nombre.
+
+### Ej 3.15 Base de datos de la agenda telefónica, paso 3
+
+Cambie el backend para que la eliminación de entradas de la agenda telefónica se refleje en la base de datos.
+
+Verifique que el frontend aún funcione después de realizar los cambios.
+
+### 3.16 Base de datos de la agenda telefónica, paso 4
+
+Mueva el manejo de errores de la aplicación a un nuevo middleware de manejo de errores.
+
+### 3.17 Base de datos de la agenda, paso 5
+
+Si el usuario intenta crear una nueva entrada en la agenda para una persona cuyo nombre ya está en la agenda, elfrontend intentará actualizar el número de teléfono de la entrada existente realizando una solicitud HTTP PUT a la URL única de la entrada.
+
+Modifique el backend para admitir esta solicitud.
+
+Verifique que el frontend funcione después de realizar sus cambios.
+
+### 3.18 Base de datos de la agenda telefónica, paso 6
+
+También actualice el manejo de las rutas api/persons/:id e info para usar la base de datos, y verifique que funcionen directamente con el navegador, Postman o el cliente REST de VS Code.
+
+La inspección de una entrada individual de la agenda telefónica desde el navegador debería verse así:
